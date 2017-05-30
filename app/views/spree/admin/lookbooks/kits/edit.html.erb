@@ -10,6 +10,13 @@
     </li>
 <% end %>
 
+<% SpreeI18n::Config.available_locales.each do |locale| %>
+    <% if @lookbooks_kit.translation_for(locale).image? %>
+        image <%= locale.to_s %> : <br/>
+        <img src ="<%= @lookbooks_kit.image(locale).url(:large) %>"/>
+        <br/>
+    <% end %>
+<% end %>
 
 
 <div id="ajax_error" class="errorExplanation" style="display:none;"></div>
