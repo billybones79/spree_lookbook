@@ -22,7 +22,7 @@
 
       <td>
         <% if (defined?(skp) && skp)  %>
-            <%= image_tag skp.kit.image_for( skp.product, :normal) %>
+            <%= image_tag skp.kit.image_for( skp.product, :product) %>
         <% end %>
         <div class="panel-body">
           <%= file_field_tag "kit[spree_kits_products_attributes][#{line_id}][image]" , class: 'form-control', rows: 4 %>
