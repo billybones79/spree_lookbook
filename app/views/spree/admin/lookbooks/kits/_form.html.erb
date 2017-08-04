@@ -24,6 +24,18 @@
       </div>
   </div>
 
+  <div class="row">
+
+    <div class="col-md-6">
+      <%= f.field_container :spree_taxons, class: ['form-group'] do %>
+          <%= f.label :spree_taxons_id, Spree.t(:taxon) %>
+
+              <%= f.hidden_field :spree_taxons_id, value: (@lookbooks_kit.spree_taxon ? @lookbooks_kit.spree_taxon.id : @lookbook.spree_taxon_id) , class: "taxon_picker" %>
+
+      <% end %>
+    </div>
+  </div>
+
   <% if f.object.persisted? %>
 
   <table class="table sortable" id = "product_table"  data-sortable-link="<%= admin_lookbook_kit_update_product_position_path(@lookbook, @lookbooks_kit) %>">

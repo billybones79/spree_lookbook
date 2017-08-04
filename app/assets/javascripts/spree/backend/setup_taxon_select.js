@@ -46,5 +46,6 @@ var set_taxon_select_from_parent = function(selector){
 }
 
 $(document).ready(function () {
-    set_taxon_select_from_parent('#lookbook_spree_taxon_id')
+    set_taxon_select_from_parent('#lookbook_spree_taxon_id');
+    set_taxon_select_from_parent('#kit_spree_taxons_id');
 });
