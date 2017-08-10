@@ -1,4 +1,4 @@
-<% if defined?(product) && product %>
+<% if defined?(product) && !product.nil? %>
 
     <tr id="<%= spree_dom_id product %>" >
       <% line_id = (defined? skp )? skp : rand(500..500000) %>

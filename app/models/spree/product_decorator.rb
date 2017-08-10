@@ -1,6 +1,6 @@
 Spree::Product.class_eval do
 
-  has_many :spree_kits_products, -> { order(:position) }, class_name: "Spree::KitProduct", foreign_key: "spree_product_id"
+  has_many :spree_kits_products, -> { order(:position) }, class_name: "Spree::KitProduct", foreign_key: "spree_product_id", dependent: :destroy
   has_many :kits, :through => 'spree_kits_products', class_name: "Spree::Kit"
 
   def with_similar_kit
