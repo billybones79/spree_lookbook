@@ -35,6 +35,16 @@ module Spree
       end
     end
 
+    #paperclip is annoying so quick hack/fix
+    def as_json options
+
+      {
+          name: name,
+          id: id
+      }
+
+    end
+
 
 
     class Translation

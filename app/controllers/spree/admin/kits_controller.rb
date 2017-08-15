@@ -23,7 +23,7 @@ module Spree
       end
 
       def search
-         @kits = Spree::Kit.with_translations.where("name like ?", "%"+params[:q][:name_cont]+"%")
+         @kits = Spree::Kit.with_translations.where("name like ?", "%"+params[:q][:name_cont]+"%").uniq
 
         render json: {results: @kits}
       end
