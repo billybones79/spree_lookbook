@@ -27,11 +27,11 @@
   <div class="row">
 
     <div class="col-md-6">
-      <%= f.field_container :spree_taxons, class: ['form-group'] do %>
-          <%= f.label :spree_taxons_id, Spree.t(:taxon) %>
 
-              <%= f.hidden_field :spree_taxons_id, value: (@lookbooks_kit.spree_taxon ? @lookbooks_kit.spree_taxon.id : @lookbook.spree_taxon_id) , class: "taxon_picker" %>
 
+      <%= f.field_container :taxons do %>
+          <%= f.label :taxon_ids, plural_resource_name(Spree::Taxon) %><br />
+          <%= f.hidden_field :taxon_ids, value: @lookbooks_kit.taxons.pluck(:id).join(',') %>
       <% end %>
     </div>
   </div>

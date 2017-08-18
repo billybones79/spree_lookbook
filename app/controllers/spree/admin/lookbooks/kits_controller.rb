@@ -4,6 +4,7 @@ module Spree
       class KitsController < ResourceController
 
         before_action :load_lookbook, except: :add_product
+        before_action :setup_taxons_correctly, only: :update
         respond_to :js, only: [:add_product]
 
         def index
@@ -71,6 +72,12 @@ module Spree
         private
         def model_class
           Spree::Kit
+        end
+
+        def setup_taxons_correctly
+          if params[:kit][:taxon_ids].present?
+            params[:kit][:taxon_ids] = params[:kit][:taxon_ids].split(',')
+          end
         end
 
         def permitted_resource_params

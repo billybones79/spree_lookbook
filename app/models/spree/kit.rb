@@ -4,12 +4,15 @@ module Spree
 
     has_many :spree_kits_products, -> { order(:position) }, class_name: "Spree::KitProduct"
     has_many :spree_kits_lookbooks, class_name: "Spree::KitLookbook"
+    has_many :spree_kits_taxons,  class_name: "Spree::KitTaxon"
+
+
     has_many :products, :through => 'spree_kits_products', class_name: "Spree::Product"
     has_many :lookbooks, :through => 'spree_kits_lookbooks', class_name: "Spree::Lookbook"
-    belongs_to :spree_taxon, foreign_key: "spree_taxons_id", class_name: "Spree::Taxon"
+    has_many :taxons, :through => 'spree_kits_taxons', class_name: "Spree::Taxon"
 
     translates :name, :image, :slug, presence: true
-    accepts_nested_attributes_for :translations, :spree_kits_products, allow_destroy: true
+    accepts_nested_attributes_for :translations, :spree_kits_products, :taxons,  allow_destroy: true
 
 
     has_many :images
