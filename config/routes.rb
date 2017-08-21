@@ -1,7 +1,10 @@
 Spree::Core::Engine.add_routes do
   get '/:taxon/inspirez-vous', to: 'lookbooks#index', as: :lookbooks
   get '/:taxon/inspirez-vous/:slug', to: 'lookbooks#show', as: :show_lookbook
-  get '/:taxon//inspirez-vous/:slug/:kit', to: 'kits#show', as: :show_kit
+  # get '/:taxon/inspirez-vous/:slug/:kit', to: 'kits#show', as: :show_kit
+
+  # route globbing for pretty nested taxon and product paths
+  get '/*taxon/inspirez-vous/:slug/:kit', :to => 'kits#show', :as => :show_kit
 
 
   namespace :admin do
