@@ -17,7 +17,7 @@ module Spree
 
     accepts_nested_attributes_for :translations, :spree_kits_lookbooks, allow_destroy: true
 
-    friendly_id :slug_candidates, use: :globalize
+    friendly_id :slug_candidates, use: [:globalize, :history]
 
     def slug_candidates
       [[:name],[:name, :id]]
@@ -31,7 +31,9 @@ module Spree
                         default_style: :large
       validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
+
     end
+
 
 
 

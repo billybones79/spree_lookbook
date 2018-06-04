@@ -12,6 +12,8 @@
       <div class="panel-heading"><%= Spree.t(:'i18n.fields') %></div>
       <div class="list-group" id="attr_list">
         <a class="list-group-item active" data-attr="name" href="#"><%= Spree.t("name") %></a>
+        <a class="list-group-item" data-attr="slug" href="#"><%= Spree.t("slug") %></a>
+
         <a class="list-group-item " data-attr="image" href="#"><%= Spree.t("image") %></a>
         <a class="list-group-item" data-attr="meta_title" href="#"><%= Spree.t("meta_title") %></a>
         <a class="list-group-item " data-attr="meta_description" href="#"><%= Spree.t("meta_description") %></a>
@@ -41,6 +43,26 @@
 
                     <div class="panel-body">
                       <%= g.text_field :name, class: 'form-control', rows: 4 %>
+                    </div>
+                  </div>
+
+                  <div class="panel panel-default slug <%= locale %>" style="display:<%= 'none'%>;">
+                    <div class="panel-heading">
+                      <%= Spree.t(:slug, locale: locale) %>
+
+                      <div class="pull-right text-muted">
+                        <small><i><%= Spree.t(:'i18n.this_file_language', locale: locale) %></i></small>
+
+                        <% if locale.to_s.include?('-') %>
+                            <img src="https://www.localeapp.com/assets/flags/regions/<%= locale.to_s.split('-').last %>.png">
+                        <% else %>
+                            <img src="https://www.localeapp.com/assets/flags/languages/<%= locale %>.png">
+                        <% end %>
+                      </div>
+                    </div>
+
+                    <div class="panel-body">
+                      <%= g.text_field :slug, class: 'form-control', rows: 4 %>
                     </div>
                   </div>
 

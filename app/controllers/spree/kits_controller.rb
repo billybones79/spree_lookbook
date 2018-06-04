@@ -14,6 +14,10 @@ module Spree
       else
         @kit = @lookbook.kits.first
       end
+
+      if request.path != show_kit_path(@taxon, @lookbook, @kit)
+        redirect_to show_kit_path(@taxon, @lookbook, @kit), :status => :moved_permanently and return
+      end
     end
 
     private

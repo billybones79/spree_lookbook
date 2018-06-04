@@ -26,7 +26,7 @@ Spree::Core::Engine.add_routes do
       end
     end
 
-    resources :lookbooks, concerns: :positionable do
+    resources :lookbooks, concerns: :positionable, path: "LB" do
       resources :kits, concerns: :positionable, controller: "lookbooks/kits" do
         post "update_product_position", to: "lookbooks/kits#update_product_positions", as: :update_product_position
       end

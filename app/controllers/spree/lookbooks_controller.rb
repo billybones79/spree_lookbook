@@ -9,6 +9,9 @@ module Spree
         @lookbook = Spree::Lookbook.joins(:kits).order(created_at: :desc).first
       end
         @kit = @lookbook.kits.first
+      if request.path != show_lookbook_path(@taxon, @lookbook)
+         redirect_to show_lookbook_path(@taxon, @lookbook), :status => :moved_permanently and return
+      end
     end
 
     def index
